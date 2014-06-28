@@ -88,3 +88,20 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*
+|--------------------------------------------------------------------------
+| Role Check Filter
+|--------------------------------------------------------------------------
+|
+| Added as part of the Laravel Starter to check user role permissions
+|
+*/
+Route::filter('role', function($route, $request, $role)
+{
+	if (Auth::guest() || ! Auth::user()->hasRole($role)) {
+		return Response::view('errors.403', array(), 403);
+	}
+});
+
+
