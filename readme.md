@@ -8,6 +8,7 @@
 - Admin views for managing users and roles.
 - User registration view
 - Remember me integration
+- Angular JS Demo
 
 
 ### License

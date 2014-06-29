@@ -5,16 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		@section('meta')
-        <title>Photo Contest</title>
-        <meta name="description" content="Photo Contest Testing">
+            <title>Laravel Starter</title>
+            <meta name="description" content="Laravel Starter">
 		@show
         {{ HTML::style('styles/vendor.min.css') }}
         {{ HTML::style('styles/main.min.css') }}
 		@yield('styles')
     </head>
     <body>
-
-    	@include('layouts.partials._header')
+        @section('header')
+    	   @include('layouts.partials._header')
+        @show
 
         <div class="container">
         @yield('breadcrumb')
@@ -24,7 +25,9 @@
 
         @yield('content')
 
-        @yield('footer')
+        @section('footer')
+           @include('layouts.partials._footer')
+        @show
 
         {{-- scripts --}}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

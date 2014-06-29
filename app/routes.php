@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/', array('as' => 'home', function() {
+    return View::make('home');
+}));
+
 
 //User Sesions
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
