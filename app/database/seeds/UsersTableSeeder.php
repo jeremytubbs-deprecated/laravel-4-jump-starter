@@ -8,9 +8,7 @@ class UsersTableSeeder extends Seeder {
 
 		$user = User::create(array(
 			'password' => Hash::make('admin'),
-			'first_name' => 'Jeremy',
-	        'last_name' => 'Tubbs',
-	        'email'	   => 'jtubbs@imamuseum.org',
+	        'email'	   => 'admin@admin.com',
 	        'active' => 1
 	    ));
 
