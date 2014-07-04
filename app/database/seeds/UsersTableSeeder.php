@@ -17,6 +17,9 @@ class UsersTableSeeder extends Seeder {
 	    $role = Role::create(array(
 	    	'name' => 'admin'
 	    ));
+
+	    $user = User::find(1);
+	    $user->assignRole(1);
 	}
 
 }

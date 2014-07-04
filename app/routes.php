@@ -27,7 +27,7 @@ Route::post('password/reset/{token}', 'RemindersController@postReset');
 Route::get('remind', array('as' => 'remind', 'uses' => 'RemindersController@getRemind'));
 Route::post('remind', 'RemindersController@postRemind');
 
-//admin areas
+//Admin Area
 Route::group(array('before' => 'role:admin'), function() {
     Route::resource('admin', 'AdminController');
 });
