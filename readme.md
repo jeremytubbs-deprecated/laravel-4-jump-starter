@@ -1,6 +1,15 @@
 ## Laravel Project Starter
 
-> Installataion documentation coming soon...
+> Better installataion documentation coming soon...
+
+From the commandline of your project root:
+
+```
+	composer update
+	npm install
+	bower install
+	gulp
+```
 
 
 ### Todo
