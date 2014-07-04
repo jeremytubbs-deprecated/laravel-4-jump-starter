@@ -5,11 +5,32 @@
 From the commandline of your project root:
 
 ```
-	composer update
-	npm install
-	bower install
-	gulp
+	$ composer update
+	$ npm install
+	$ bower install
+	$ gulp
 ```
+
+Create a database named 'starter' if using Homestead or edit the .env.php file.
+
+Check your enviroment:
+
+```
+	$ php artisan env
+```
+
+Install migrations and seed
+
+```
+	$ php artisan migrate
+	$ php artisan db:seed
+```
+
+Now you should be able to login!
+Email: 'admin@admin.com'
+Password: 'admin'
+
+Currently you will be redirected to a 403 not found admin section.
 
 
 ### Todo
