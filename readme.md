@@ -30,8 +30,11 @@ Now you should be able to login!
 Email: 'admin@admin.com'
 Password: 'admin'
 
-Currently you will be redirected to a 403 not found admin section.
+You will be redirected to the admin section.
 
+Non Admin Login:
+Email: 'user@user.com'
+Password: 'user'
 
 ### Todo
 
