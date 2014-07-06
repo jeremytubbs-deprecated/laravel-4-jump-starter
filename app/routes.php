@@ -18,8 +18,11 @@ Route::get('/', array('as' => 'home', function() {
 
 //User Sesions
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
-Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destroy'));
 Route::post('login', array('as' => 'sessions.store', 'uses' => 'SessionsController@store'));
+Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destroy'));
+//User Registration
+Route::get('register', array('as' => 'register', 'uses' => 'UsersController@create'));
+Route::post('register', array('as' => 'users.store', 'uses' => 'UsersController@store'));
 
 // Password Resets
 Route::get('password/reset/{token}', array('as' => 'reset', 'uses' => 'RemindersController@getReset'));
@@ -28,8 +31,9 @@ Route::get('remind', array('as' => 'remind', 'uses' => 'RemindersController@getR
 Route::post('remind', 'RemindersController@postRemind');
 
 //Admin Area
-Route::group(array('before' => 'role:admin'), function() {
-    Route::resource('admin', 'AdminController');
+Route::group(array('before' => 'role:admin', 'prefix' => 'admin'), function() {
+    Route::resource('', 'AdminController');
+    Route::resource('users', 'UsersController');
 });
 
 

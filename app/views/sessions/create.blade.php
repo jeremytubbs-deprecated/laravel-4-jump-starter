@@ -32,7 +32,8 @@
 
             <br>
             <div class="form-group">
-                <button type="submit" class="btn btn-block btn-link btn-sm"><a href={{ URL::to('remind') }}>Forgot your password?</a></button>
+                <button type="submit" class="btn btn-block btn-link btn-sm"><a href={{ route('register') }}>Need an Account? Register Here.</a></button>
+                <button type="submit" class="btn btn-block btn-link btn-sm"><a href={{ route('remind') }}>Forgot your password?</a></button>
             </div>
         </div>
     </div>
