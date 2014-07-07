@@ -56,7 +56,7 @@ class UsersController extends \BaseController {
     		return Redirect::to('/')->with('flash_message', 'You are now registered.');
 		}
 		$error = $validator->messages();
-		return Redirect::back()->with('flash_message', $error);
+		return Redirect::back()->with('error', $error);
 	}
 
 	/**

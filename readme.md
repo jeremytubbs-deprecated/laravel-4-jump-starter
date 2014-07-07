@@ -38,10 +38,12 @@ Password: 'user'
 
 ### Todo
 
-- Admin views for managing users and roles.
-- User registration view
+- Admin views for managing users and roles
+- Email Confirmation for User Registration
+- Connect with Facebook API
 - Remember me integration
-- Angular JS Demo
+- User Profile Page
+- Angular JS / Laravel Integration Demo
 
 
 ### License
