@@ -20,6 +20,7 @@ Route::get('/', array('as' => 'home', function() {
 Route::group(array('before' => 'auth|role:admin', 'prefix' => 'admin'), function() {
     Route::get('', array('as' => 'dashboard', 'uses' => 'AdminController@index'));
     Route::resource('users', 'UsersController');
+    Route::post('users/create', array('as' => 'addUser', 'uses' => 'UsersController@add'));
     Route::post('assignRole/{id}/{role_id}', 'UsersController@assignRole');
 	Route::post('removeRole/{id}/{role_id}', 'UsersController@removeRole');
 	// Route::resource('groups', 'RolesController');

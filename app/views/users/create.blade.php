@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 	<h1>Add User</h1>
-	{{ Form::open(array('action' => array('UsersController@store'), 'method' => 'POST', 'role' => 'form')) }}
+	{{ Form::open(array('action' => array('UsersController@add'), 'method' => 'POST', 'role' => 'form')) }}
 		<div class="form-group">
 			{{ Form::label('First Name') }}
 			{{ Form::text('first_name', NULL, array('class' => 'form-control')) }}

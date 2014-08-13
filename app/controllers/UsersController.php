@@ -16,7 +16,6 @@ class UsersController extends \BaseController {
 		));
 	}
 
-
 	/**
 	 * Display form for new registrations
 	 * GET /users
@@ -70,6 +69,41 @@ class UsersController extends \BaseController {
 			Auth::login($user);
 
     		return Redirect::to('/')->with('flash_message', 'You are now registered.');
+		}
+		$error = $validator->messages();
+		return Redirect::back()->with('error', $error);
+	}
+
+	/**
+	 * Admin Add User - user will not have password
+	 * POST admin/users/create
+	 *
+	 * @return Response
+	 */
+	public function add()
+	{
+		$input = array(
+            'email' => Input::get('email'),
+            );
+		$rules = array(
+	        'email' => 'required|email|unique:users'
+		);
+		$validator = Validator::make($input, $rules);
+
+		if ($validator->passes()) {
+			$user = new User;
+			$user->first_name = Input::get('first_name');
+			$user->last_name = Input::get('last_name');
+			$user->email = $input['email'];
+			$user->active = 1;
+			$user->save();
+			// $this->mailer->welcome($user);
+
+			if (Input::get('group_id') != '0') {
+				$user->assignRole(Input::get('group_id'));
+			}
+
+    		return Redirect::route('admin.users.index')->with('success', $user->email . ' has been created.');
 		}
 		$error = $validator->messages();
 		return Redirect::back()->with('error', $error);
