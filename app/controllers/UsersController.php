@@ -16,6 +16,13 @@ class UsersController extends \BaseController {
 		));
 	}
 
+
+	/**
+	 * Display form for new registrations
+	 * GET /users
+	 *
+	 * @return Response
+	 */
 	public function register()
 	{
 		return View::make('users.register');

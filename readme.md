@@ -11,7 +11,7 @@ From the commandline of your project root:
 	$ gulp
 ```
 
-Create a database named 'starter' if using Homestead or edit the .env.php file.
+Create a database named 'starter' if using Homestead create the .env.php file.
 
 Check your enviroment:
 
@@ -38,12 +38,12 @@ Password: 'user'
 
 ### Todo
 
-- Admin views for managing users and roles
+- Admin views for managing roles
 - Email Confirmation for User Registration
 - Connect with Facebook API
 - Remember me integration
 - User Profile Page
-- Angular JS / Laravel Integration Demo
+- Change gulpfile to not use browserfy
 
 
 ### License
