@@ -16,6 +16,15 @@ Route::get('/', array('as' => 'home', function() {
     return View::make('home');
 }));
 
+//Admin Area
+Route::group(array('before' => 'auth|role:admin', 'prefix' => 'admin'), function() {
+    Route::get('', array('as' => 'dashboard', 'uses' => 'AdminController@index'));
+    Route::resource('users', 'UsersController');
+    Route::post('assignRole/{id}/{role_id}', 'UsersController@assignRole');
+	Route::post('removeRole/{id}/{role_id}', 'UsersController@removeRole');
+	// Route::resource('groups', 'RolesController');
+});
+
 //User Sesions
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
 Route::post('login', array('as' => 'sessions.store', 'uses' => 'SessionsController@store'));
@@ -25,22 +34,15 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destr
 Route::get('register', array('as' => 'register', 'uses' => 'UsersController@create'));
 Route::post('register', array('as' => 'users.store', 'uses' => 'UsersController@store'));
 
-//User Account Activation
-Route::get('register/activate/{confirmation}', array('as' => 'users.getConfirm', 'uses' => 'UsersController@getConfirm'));
-Route::post('register/activate/{confirmation}', array('as' => 'users.postConfirm', 'uses' => 'UsersController@postConfirm'));
-
 // Password Resets
 Route::get('password/reset/{token}', array('as' => 'reset', 'uses' => 'RemindersController@getReset'));
 Route::post('password/reset/{token}', 'RemindersController@postReset');
 Route::get('remind', array('as' => 'remind', 'uses' => 'RemindersController@getRemind'));
 Route::post('remind', 'RemindersController@postRemind');
 
-//Admin Area
-Route::group(array('before' => 'auth|role:admin', 'prefix' => 'admin'), function() {
-    Route::resource('', 'AdminController');
-    Route::resource('users', 'UsersController');
-});
-
+//User Account Activation Email
+//Route::get('register/activate/{confirmation}', array('as' => 'users.getConfirm', 'uses' => 'UsersController@getConfirm'));
+//Route::post('register/activate/{confirmation}', array('as' => 'users.postConfirm', 'uses' => 'UsersController@postConfirm'));
 
 // Error pages uncomment in production
 // App::error(function($exception, $code)

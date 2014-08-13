@@ -10,7 +10,10 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$users = User::with('roles')->get();
+		return View::make('users.index', array(
+			'users' => $users
+		));
 	}
 
 	/**
@@ -21,7 +24,8 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('users.register');
+		$roles = Role::lists('name', 'id');
+		return View::make('users.create')->withRoles($roles);
 	}
 
 	/**
@@ -80,7 +84,17 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = User::with('roles')->where('id', '=', $id)->first();
+		$user_roles = array();
+		foreach ($user->roles as $role) {
+			$user_roles[$role->id] = $role->name;
+		}
+		$roles = Role::select('name', 'id')->get();
+		return View::make('users.edit', array(
+			'user' => $user,
+			'user_roles' => $user_roles,
+			'roles' => $roles
+		));
 	}
 
 	/**
@@ -92,7 +106,13 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$user = User::find($id);
+		$user->first_name = Input::get('first_name');
+		$user->last_name = Input::get('last_name');
+		$user->email = Input::get('email');
+		$user->save();
+
+		return Redirect::route('admin.users.index')->with('flash_message', $user->first_name . ' ' . $user->last_name . ' has been updated.');
 	}
 
 	/**
@@ -104,7 +124,23 @@ class UsersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$user = User::find($id);
+		$user->delete();
+		return Redirect::route('admin.users.index')->with('flash_message', 'User has been deleted.');
+	}
+
+	public function assignRole($id, $role)
+	{
+		$user = User::find($id);
+	    $user->assignRole($role);
+	    return Redirect::back();
+	}
+
+	public function removeRole($id, $role)
+	{
+		$user = User::find($id);
+	    $user->removeRole($role);
+	    return Redirect::back();
 	}
 
 }
