@@ -31,7 +31,7 @@ Route::post('login', array('as' => 'sessions.store', 'uses' => 'SessionsControll
 Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destroy'));
 
 //User Registration
-Route::get('register', array('as' => 'register', 'uses' => 'UsersController@create'));
+Route::get('register', array('as' => 'register', 'uses' => 'UsersController@register'));
 Route::post('register', array('as' => 'users.store', 'uses' => 'UsersController@store'));
 
 // Password Resets

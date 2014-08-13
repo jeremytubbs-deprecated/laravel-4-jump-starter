@@ -16,6 +16,11 @@ class UsersController extends \BaseController {
 		));
 	}
 
+	public function register()
+	{
+		return View::make('users.register');
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 * GET /users/create
