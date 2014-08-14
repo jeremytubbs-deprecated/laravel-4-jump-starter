@@ -8,7 +8,7 @@
             <title>Laravel Starter</title>
             <meta name="description" content="Laravel Starter">
 		@show
-        {{ HTML::style('styles/vendor.min.css') }}
+        {{ HTML::style('vendor/bootstrap.min.css') }}
         {{ HTML::style('styles/main.min.css') }}
 		@yield('styles')
     </head>
@@ -31,11 +31,10 @@
 
         {{-- scripts --}}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        {{ HTML::script('scripts/vendor_bundle.js') }}
-        <!-- <script src="//oss.maxcdn.com/angular.strap/2.0.0/angular-strap.min.js"></script>
-        <script src="//oss.maxcdn.com/angular.strap/2.0.0/angular-strap.tpl.min.js"></script> -->
-        {{ HTML::script('scripts/bundle.js') }}
+        <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+        {{ HTML::script('vendor/bootstrap.min.js') }}
+        {{ HTML::script('vendor/angular/angular.min.js') }}
+        {{ HTML::script('app/app.js') }}
         @yield('scripts')
     </body>
 </html>

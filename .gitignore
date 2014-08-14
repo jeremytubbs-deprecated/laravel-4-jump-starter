@@ -1,6 +1,6 @@
 /bootstrap/compiled.php
 /vendor
-/bower_components
+/app/assets/bower_components
 /node_modules
 composer.phar
 composer.lock
@@ -8,3 +8,4 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
+/.sass-cache
