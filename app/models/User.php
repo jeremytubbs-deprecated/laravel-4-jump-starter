@@ -4,10 +4,11 @@ use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use SammyK\LaravelFacebookSdk\FacebookableTrait;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait;
+	use UserTrait, RemindableTrait, FacebookableTrait;
 
 	/**
 	 * The database table used by the model.
@@ -21,7 +22,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password', 'remember_token');
+	protected $hidden = array('password', 'remember_token', 'access_token');
+
+	protected static $facebook_field_aliases = [
+        'facebook_field_name' => 'database_column_name',
+        'id' => 'facebook_user_id',
+    ];
 
 	public function roles() {
 		return $this->belongsToMany('Role');

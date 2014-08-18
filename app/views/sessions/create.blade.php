@@ -5,6 +5,12 @@
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4">
             <h1>Welcome.</h1>
+            <div class="form-group">
+                <a class="btn btn-block btn-facebook" href={{ URL::to('facebook/connect') }}>Connect with <strong>Facebook</strong></a>
+                <span class="help-block text-center"><small>We will create your member profile using details from Facebook.</small></span>
+            </div>
+
+            <p class="seperator"> or </p>
 
             {{ Form::open(array('route' => 'sessions.store', 'id' => 'login-form', 'name' => 'form', 'autocomplete' => 'off', 'novalidate' => '')) }}
 

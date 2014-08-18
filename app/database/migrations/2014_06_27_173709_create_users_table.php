@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration {
 			$table->string('password', 60);
 			$table->string('confirmation_hash', 60)->nullable();
 			$table->string('remember_token', 100)->nullable();
+			$table->bigInteger('facebook_user_id')->unsigned()->index();
+			$table->string('access_token')->nullable();
 			$table->boolean('active')->default(0);
 			$table->boolean('suspended')->default(0);
 			$table->timestamps();

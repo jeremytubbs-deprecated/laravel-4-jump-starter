@@ -40,10 +40,7 @@ Password: 'user'
 
 - Admin views for managing roles
 - Email Confirmation for User Registration
-- Connect with Facebook API
-- Remember me integration
 - User Profile Page
-- Change gulpfile to not use browserfy
 
 
 ### License

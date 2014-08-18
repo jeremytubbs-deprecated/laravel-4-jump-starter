@@ -41,6 +41,10 @@ Route::post('password/reset/{token}', 'RemindersController@postReset');
 Route::get('remind', array('as' => 'remind', 'uses' => 'RemindersController@getRemind'));
 Route::post('remind', 'RemindersController@postRemind');
 
+//Facebook Login
+Route::get('facebook/connect', array('as' => 'facebook', 'uses' => 'UsersController@create_facebook'));
+Route::get('facebook/login', array('as' => 'store_facebook', 'uses' => 'UsersController@store_facebook'));
+
 //User Account Activation Email
 //Route::get('register/activate/{confirmation}', array('as' => 'users.getConfirm', 'uses' => 'UsersController@getConfirm'));
 //Route::post('register/activate/{confirmation}', array('as' => 'users.postConfirm', 'uses' => 'UsersController@postConfirm'));
