@@ -45,6 +45,5 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','{{ $_ENV['GOOGLE_ANALYTICS'] }}','auto');ga('send','pageview');
         </script>
-
     </body>
 </html>

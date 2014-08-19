@@ -48,4 +48,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->roles()->detach($role);
 	}
 
+	public function getFullnameAttribute() {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
 }

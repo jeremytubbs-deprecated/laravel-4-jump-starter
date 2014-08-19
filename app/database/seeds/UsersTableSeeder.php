@@ -28,7 +28,5 @@ class UsersTableSeeder extends Seeder {
 	        'active' => 1
 	    ));
 	    $user->save();
-
 	}
-
 }

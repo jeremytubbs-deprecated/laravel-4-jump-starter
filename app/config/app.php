@@ -122,7 +122,6 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider',
-		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 
 	),
