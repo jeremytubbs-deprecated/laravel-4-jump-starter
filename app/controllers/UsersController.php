@@ -110,12 +110,18 @@ class UsersController extends \BaseController {
 			return Redirect::to('/')->with('error', $e->getPrevious()->getMessage());
 		}
 
+		$deleted = check_soft_deletes($facebook_user['email'], 'email', 'User');
+		if ($deleted) {
+			return Redirect::to('/')->with('error', 'Your account has been suspended.');
+		}
+
 		// Create the user if not exists or update existing
 		$user = User::createOrUpdateFacebookObject($facebook_user);
 		$user->access_token = $token->access_token;
 		$user->slug = getSlug($facebook_user['first_name'] . ' ' . $facebook_user['last_name'], 'User');
 		$user->active = 1;
 		$user->save();
+
 
 		// Log the user into Laravel
 		Facebook::auth()->login($user);
@@ -205,6 +211,7 @@ class UsersController extends \BaseController {
 		$user = User::find($id);
 		$user->first_name = Input::get('first_name');
 		$user->last_name = Input::get('last_name');
+		$user->slug = getSlug(Input::get('first_name') . ' ' . Input::get('last_name'), 'User');
 		$user->email = Input::get('email');
 		$user->save();
 

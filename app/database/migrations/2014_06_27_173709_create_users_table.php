@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration {
 			$table->string('access_token')->nullable();
 			$table->boolean('active')->default(0);
 			$table->boolean('suspended')->default(0);
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}
