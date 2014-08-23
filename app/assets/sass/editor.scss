@@ -1,11 +1,11 @@
-.CodeMirror-code {
-	max-height: 90%;
+.editor-input {
+	border: 1px #eee solid;
 }
 
 .editor-output {
 	position: absolute;
 	left: 50%;
-	top: 75px;
+	top: 100px;
 	bottom: 50px;
 	overflow: auto;
 }

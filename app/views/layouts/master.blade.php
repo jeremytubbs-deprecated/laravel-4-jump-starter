@@ -8,9 +8,9 @@
             <title>Laravel Starter</title>
             <meta name="description" content="Laravel Starter">
 		@show
+        @yield('styles')
         {{ HTML::style('vendor/bootstrap.min.css') }}
         {{ HTML::style('styles/main.min.css') }}
-		@yield('styles')
     </head>
     <body ng-app="myApp">
         @section('header')

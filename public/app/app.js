@@ -19,3 +19,10 @@ app.filter('markdown', function ($sce) {
         return $sce.trustAsHtml(html);
     };
 });
+
+app.controller('MyController', [ '$scope', function($scope) {
+    $scope.editorOptions = {
+        lineWrapping : true,
+        indentUnit : 4,
+    };
+}]);

@@ -2,7 +2,7 @@
 
 @section('content')
 <form role="form">
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="MyController">
 	<div class="row">
 		<div class="col-md-12">
 			<input class="form-control" type="text" name="title" />
@@ -10,9 +10,11 @@
 	</div>
 	<div class="row">
 		<div class="col-md-6">
-			<textarea class="form-control editor-input" ng-model="editor.text" ui-codemirror></textarea>
+			<div class="editor-input">
+				<textarea class="form-control" ng-model="editor.text" ui-codemirror ui-codemirror-opts="editorOptions"></textarea>
+			</div>
 		</div>
-		<div class="col-md-6 editor-output" ng-bind-html="editor.text | markdown"></div>
+		<div class="col-md-6 editor-output" id="preview" ng-bind-html="editor.text | markdown"></div>
 	</div>
 </div>
 </form>
