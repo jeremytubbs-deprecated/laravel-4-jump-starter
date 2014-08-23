@@ -17,7 +17,7 @@
     	   @include('layouts.partials._header')
         @show
 
-        <div class="container">
+        <div class="container-fluid">
         @yield('breadcrumb')
 		@include('layouts.partials._notifications')
         </div>

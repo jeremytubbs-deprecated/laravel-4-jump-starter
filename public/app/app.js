@@ -1,16 +1,16 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ui.codemirror']);
 
-// app.directive('markdown', function () {
-//     var converter = new Showdown.converter();
-//     return {
-//         restrict: 'A',
-//         link: function (scope, element, attrs) {
-//             var htmlText = converter.makeHtml(element.text());
-//             element.html(htmlText);
-//         }
-//     };
+app.directive('markdown', function () {
+    var converter = new Showdown.converter();
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            var htmlText = converter.makeHtml(element.text());
+            element.html(htmlText);
+        }
+    };
 
-// });
+});
 
 app.filter('markdown', function ($sce) {
     var converter = new Showdown.converter();

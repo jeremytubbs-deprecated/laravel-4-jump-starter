@@ -66,8 +66,7 @@ gulp.task('moveAngular', function(){
 
 gulp.task('watch', function () {
     // watch for changes
-    gulp.watch('app/assets/scss/**/*.scss', ['styles']);
-    gulp.watch('app/assets/js/**/*.js', ['scripts']);
+    gulp.watch('app/assets/sass/*.scss', ['styles']);
     gulp.watch('app/assets/vendor/**/*.scss', ['bootstrapSass']);
 });
 

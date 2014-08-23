@@ -18,6 +18,8 @@
     "bootstrap-sass-official": "~3.2.0",
     "modernizr": "~2.6.2",
     "jquery": "~1.11.0",
-    "angular": "~1.2.22"
+    "angular": "~1.2.22",
+    "angular-ui-codemirror": "~0.1.6",
+    "codemirror": "~4.5.0"
   }
 }
