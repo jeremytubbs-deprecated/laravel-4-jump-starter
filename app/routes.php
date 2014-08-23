@@ -19,11 +19,14 @@ Route::get('/', array('as' => 'home', function() {
 //Admin Area
 Route::group(array('before' => 'auth|role:admin', 'prefix' => 'admin'), function() {
     Route::get('', array('as' => 'dashboard', 'uses' => 'AdminController@index'));
+    //Users Routes
     Route::resource('users', 'UsersController');
     Route::post('users/create', array('as' => 'addUser', 'uses' => 'UsersController@add'));
     Route::post('assignRole/{id}/{role_id}', 'UsersController@assignRole');
 	Route::post('removeRole/{id}/{role_id}', 'UsersController@removeRole');
 	// Route::resource('groups', 'RolesController');
+	//Posts Editor Routes
+	Route::get('editor', ['as' => 'editor', 'uses' => 'PostsController@create']);
 });
 
 //User Sesions

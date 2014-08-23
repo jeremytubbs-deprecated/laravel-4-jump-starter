@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +12,7 @@
         {{ HTML::style('styles/main.min.css') }}
 		@yield('styles')
     </head>
-    <body>
+    <body ng-app="myApp">
         @section('header')
     	   @include('layouts.partials._header')
         @show
