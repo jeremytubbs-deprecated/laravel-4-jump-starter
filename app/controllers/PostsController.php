@@ -32,7 +32,7 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		dd(Input::all());
 	}
 
 	/**

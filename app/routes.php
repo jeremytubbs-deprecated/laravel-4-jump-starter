@@ -26,6 +26,7 @@ Route::group(array('before' => 'auth|role:admin', 'prefix' => 'admin'), function
 	Route::post('removeRole/{id}/{role_id}', 'UsersController@removeRole');
 	// Route::resource('groups', 'RolesController');
 	//Posts Editor Routes
+    Route::resource('posts', 'PostsController');
 	Route::get('editor', ['as' => 'editor', 'uses' => 'PostsController@create']);
 });
 
