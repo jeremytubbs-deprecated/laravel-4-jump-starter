@@ -5,16 +5,16 @@
 <div class="container-fluid" ng-controller="MyController">
 	<div class="row">
 		<div class="col-md-12">
-			<input class="form-control" type="text" name="title" />
+			<input class="form-control" type="text" name="title" placeholder="Title"/>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6">
-			<div class="editor-input">
-				<textarea class="form-control" ng-model="editor.text" ui-codemirror ui-codemirror-opts="editorOptions"></textarea>
-			</div>
+		<div class="col-md-6 editor">
+			<textarea class="form-control" ng-model="editor.text" ui-codemirror ui-codemirror-opts="editorOptions"></textarea>
 		</div>
-		<div class="col-md-6 editor-output" id="preview" ng-bind-html="editor.text | markdown"></div>
+		<div class="col-md-6 preview">
+			<div class="editor-output" ng-bind-html="editor.text | markdown"></div>
+		</div>
 	</div>
 </div>
 </form>

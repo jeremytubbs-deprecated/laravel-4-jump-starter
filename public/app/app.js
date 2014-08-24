@@ -15,12 +15,12 @@ app.directive('markdown', function () {
 app.filter('markdown', function ($sce) {
     var converter = new Showdown.converter();
     return function (value) {
-		var html = converter.makeHtml(value || '');
+        var html = converter.makeHtml(value || '');
         return $sce.trustAsHtml(html);
     };
 });
 
-app.controller('MyController', [ '$scope', function($scope) {
+app.controller('MyController', [ '$scope', function($scope, $window) {
     $scope.editorOptions = {
         lineWrapping : true,
         indentUnit : 4,
