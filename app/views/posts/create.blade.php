@@ -8,6 +8,11 @@
 			<input class="form-control" type="text" name="title" placeholder="Title"/>
 		</div>
 	</div>
+	<div class="row editor-info">
+		<div class="col-md-12">
+			<div class="pull-right"><span ng-bind="countOf(editor.text)"></span> Words</div>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-6 editor">
 			<textarea class="form-control" ng-model="editor.text" ui-codemirror ui-codemirror-opts="editorOptions"></textarea>

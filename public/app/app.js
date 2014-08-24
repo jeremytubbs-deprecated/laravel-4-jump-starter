@@ -25,4 +25,15 @@ app.controller('MyController', [ '$scope', function($scope, $window) {
         lineWrapping : true,
         indentUnit : 4,
     };
+
+    $scope.countOf = function(text) {
+        if(!text) {
+            return 0;
+        }
+        // search for matches and count them
+        else {
+            var matches = text.match(/[^\s\n\r]+/g);
+            return matches ? matches.length : 0;
+        }
+    };
 }]);
