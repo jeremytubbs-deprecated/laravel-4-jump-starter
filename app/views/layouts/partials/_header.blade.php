@@ -24,6 +24,9 @@
                     <li>
                         {{ link_to_route('dashboard', 'Dashboard') }}
                     </li>
+                    <li>
+                        {{ link_to_route('editor', 'New Post') }}
+                    </li>
                     @endif
                 </ul>
             </div><!--/.nav-collapse -->
