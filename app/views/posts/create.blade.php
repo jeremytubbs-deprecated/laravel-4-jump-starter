@@ -2,7 +2,7 @@
 
 @section('content')
 {{ Form::open(array('action' => array('PostsController@store'), 'method' => 'POST', 'role' => 'form')) }}
-<div class="container-fluid" ng-controller="MyController">
+<div class="container-fluid" ng-controller="EditorController">
 	<div class="row">
 		<div class="col-md-12">
 			<input class="form-control" type="text" name="title" placeholder="Title"/>
@@ -25,9 +25,25 @@
 @stop
 
 @section('footer-content')
-	<div class="row">
+	<div class="row" ng-controller="FooterController">
 		<div class="col-md-12">
-			<p class="pull-right">{{ Form::submit('Submit', array('class' => 'btn btn-default')) }}</p>
+			<div class="btn-group pull-right dropup">
+				<button type="submit" class="btn btn-danger" ng-show="submitStatus"><span ng-bind="submitText"></span></button>
+				<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" ng-show="submitStatus">
+					<span class="caret"></span>
+					<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<button type="submit" class="btn btn-info" ng-hide="submitStatus"><span ng-bind="submitText"></span></button>
+				<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" ng-hide="submitStatus">
+					<span class="caret"></span>
+					<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#" ng-click="updateSubmit('Publish'); submitStatus = !submitStatus">Publish</a></li>
+					<li><a href="#" ng-click="updateSubmit('Save Draft'); submitStatus = !submitStatus">Save Draft</a></li>
+				</ul>
+			</div>
+			<input type="hidden" name="status" id="status" value="@{{ submitStatus }}"/>
 		</div>
 	</div>
 {{ Form::close() }}
