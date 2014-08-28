@@ -34,6 +34,7 @@
         <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
         {{ HTML::script('vendor/bootstrap.min.js') }}
         {{ HTML::script('vendor/angular/angular.min.js') }}
+        {{ HTML::script('vendor/angular/angular-animate.min.js') }}
         {{ HTML::script('app/app.js') }}
         @yield('scripts')
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

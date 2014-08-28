@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ui.codemirror']);
+var app = angular.module('myApp', ['ui.codemirror', 'ngAnimate']);
 
 app.controller('EditorController', ['$scope', '$window', function($scope, $window) {
     $scope.editorOptions = {
