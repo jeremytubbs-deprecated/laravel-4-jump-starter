@@ -1,4 +1,4 @@
-## Laravel Project Starter
+## Laravel 4 Jump Starter
 
 ### What works:
 
@@ -7,6 +7,7 @@
 - Admin Group
 	- Manage Users
 	- Manage Groups
+- Contact Form
 
 ### Currently in Progress:
 
@@ -17,7 +18,6 @@
 ### Future Dev Plans:
 
 - Convert to Post/Ghost to Package
-- Contact Page
 - Mailing List Signup
 - Mircoblogging Post Types
 - Portfolio / Multi-Image Post Type

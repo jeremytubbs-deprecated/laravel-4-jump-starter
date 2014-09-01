@@ -50,6 +50,10 @@ Route::post('remind', 'RemindersController@postRemind');
 Route::get('facebook/connect', array('as' => 'facebook', 'uses' => 'UsersController@create_facebook'));
 Route::get('facebook/login', array('as' => 'store_facebook', 'uses' => 'UsersController@store_facebook'));
 
+//Contact Form
+Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@index'));
+Route::post('contact', array('as' => 'contact.send', 'uses' => 'ContactController@send'));
+
 //User Account Activation Email
 //Route::get('register/activate/{confirmation}', array('as' => 'users.getConfirm', 'uses' => 'UsersController@getConfirm'));
 //Route::post('register/activate/{confirmation}', array('as' => 'users.postConfirm', 'uses' => 'UsersController@postConfirm'));

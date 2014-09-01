@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Laravel 4 Jump Starter Pack</a>
+                <a class="navbar-brand" href="/">{{ $_ENV['SITE_NAME'] }}</a>
             </div>
             <div class="collapse navbar-collapse pull-right">
                 <ul class="nav navbar-nav">
