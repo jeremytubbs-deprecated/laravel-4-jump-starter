@@ -12,6 +12,8 @@
 - Ghost Style Markdown Posts w/ Angular
 	- Convert to Package
 - Admin Group Management
+- Email Confirmation for User Registration
+- User Profile Page
 
 ### Future Plans:
 
@@ -19,13 +21,6 @@
 - Mailing List Signup
 - Mircoblogging Post Types
 - Portfolio / Multi-Image Post Type
-
-### Simple Todos:
-
-- Admin views for managing Groups
-- Email Confirmation for User Registration
-- User Profile Page
-
 
 
 > Better installataion documentation coming soon...
