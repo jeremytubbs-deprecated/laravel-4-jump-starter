@@ -123,6 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
+		'JeremyTubbs\Ghosts\GhostsServiceProvider',
 
 	),
 

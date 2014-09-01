@@ -1,5 +1,29 @@
 ## Laravel Project Starter
 
+###What works:
+
+- User Registration, Login, Logout, Password Reminders
+- Facebook Login
+- Admin Group
+	- Manage Users: Create, Update, Soft Delete
+
+###Currently in Progress:
+
+- Ghost Style Markdown Posts w/ Angular
+	- Convert to Package
+- Admin Group Management
+
+### Todo
+
+- Admin views for managing Groups
+- Email Confirmation for User Registration
+- User Profile Page
+- Contact Page
+- Mailing List Signup
+- Mircoblogging Post Types
+- Portfolio / Multi-Image Post Type
+
+
 > Better installataion documentation coming soon...
 
 From the commandline of your project root:
@@ -35,12 +59,6 @@ You will be redirected to the admin section.
 Non Admin Login:
 Email: 'user@user.com'
 Password: 'user'
-
-### Todo
-
-- Admin views for managing roles
-- Email Confirmation for User Registration
-- User Profile Page
 
 
 ### License
