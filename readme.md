@@ -1,27 +1,31 @@
 ## Laravel Project Starter
 
-###What works:
+### What works:
 
 - User Registration, Login, Logout, Password Reminders
 - Facebook Login
 - Admin Group
 	- Manage Users: Create, Update, Soft Delete
 
-###Currently in Progress:
+### Currently in Progress:
 
 - Ghost Style Markdown Posts w/ Angular
 	- Convert to Package
 - Admin Group Management
 
-### Todo
+### Future Plans:
 
-- Admin views for managing Groups
-- Email Confirmation for User Registration
-- User Profile Page
 - Contact Page
 - Mailing List Signup
 - Mircoblogging Post Types
 - Portfolio / Multi-Image Post Type
+
+### Simple Todos:
+
+- Admin views for managing Groups
+- Email Confirmation for User Registration
+- User Profile Page
+
 
 
 > Better installataion documentation coming soon...
