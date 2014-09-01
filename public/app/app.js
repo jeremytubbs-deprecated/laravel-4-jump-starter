@@ -29,23 +29,26 @@ app.controller('FooterController', ['$scope', function($scope) {
 }]);
 
 
-app.directive('markdown', function () {
-    var converter = new Showdown.converter();
-    return {
-        restrict: 'A',
-        link: function (scope, element, attrs) {
-            var htmlText = converter.makeHtml(element.text());
-            element.html(htmlText);
-        }
-    };
-
-});
-
-
 app.filter('markdown', function ($sce) {
     var converter = new Showdown.converter();
+    var markdownNoImageRegex = /!\[.*\S.*]/;
+    var markdownImageRegex = /!\[.*\S.*]\((http|https):.*\S.*(\))/;
+    
     return function (value) {
-        var html = converter.makeHtml(value || '');
+        // I need to break apart the string into an array
+        var processTemplate = function(text) {
+            var lines = text.split('\n' );
+            for (i = lines.length - 1; i >= 0; i--) {
+                line = lines[i];
+                if (line.match(markdownNoImageRegex) && ! line.match(markdownImageRegex)) {
+                    lines[i] = 'no image<br>';
+                }
+            }
+            return lines.join('\n');
+        };
+        var process = processTemplate(value || '');
+        var html = converter.makeHtml(process);
         return $sce.trustAsHtml(html);
     };
 });
+
