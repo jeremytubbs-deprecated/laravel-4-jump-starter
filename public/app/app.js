@@ -1,11 +1,13 @@
 var app = angular.module('myApp', ['ui.codemirror', 'ngAnimate']);
 
 app.controller('EditorController', ['$scope', '$window', function($scope, $window) {
+    //codemirror editor settings
     $scope.editorOptions = {
         lineWrapping : true,
         indentUnit : 4,
     };
 
+    //get word count of text
     $scope.countOf = function(text) {
         if(!text) {
             return 0;
@@ -20,15 +22,28 @@ app.controller('EditorController', ['$scope', '$window', function($scope, $windo
 
 
 app.controller('FooterController', ['$scope', function($scope) {
+    //set defaults for publish status
     $scope.submitText = 'Save Draft';
     $scope.submitStatus = false;
-
+    //toggle the publish status value
     $scope.updateSubmit = function(value) {
         $scope.submitText = value;
     };
 }]);
 
+//markdown directive used to render saved markdown from database
+app.directive('markdown', function () {
+    var converter = new Showdown.converter();
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            var htmlText = converter.makeHtml(element.text());
+            element.html(htmlText);
+        }
+    };
+});
 
+//markdown filter used with codemirror to show live preview
 app.filter('markdown', function ($sce) {
     var converter = new Showdown.converter();
     var markdownNoImageRegex = /!\[.*\S.*]/;
