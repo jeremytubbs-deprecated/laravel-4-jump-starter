@@ -5,18 +5,18 @@
 - User Registration, Login, Logout, Password Reminders
 - Facebook Login
 - Admin Group
-	- Manage Users: Create, Update, Soft Delete
+	- Manage Users
+	- Manage Groups
 
 ### Currently in Progress:
 
-- Ghost Style Markdown Posts w/ Angular
-	- Convert to Package
-- Admin Group Management
+- Ghost Style Markdown Posts w/ AngularJS
 - Email Confirmation for User Registration
 - User Profile Page
 
-### Future Plans:
+### Future Dev Plans:
 
+- Convert to Post/Ghost to Package
 - Contact Page
 - Mailing List Signup
 - Mircoblogging Post Types

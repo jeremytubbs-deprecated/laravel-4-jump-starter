@@ -21,6 +21,7 @@ Route::group(array('before' => 'auth|role:admin', 'prefix' => 'admin'), function
     Route::get('', array('as' => 'dashboard', 'uses' => 'AdminController@index'));
     //Users Routes
     Route::resource('users', 'UsersController');
+    Route::resource('groups', 'RolesController');
     Route::post('users/create', array('as' => 'addUser', 'uses' => 'UsersController@add'));
     Route::post('assignRole/{id}/{role_id}', 'UsersController@assignRole');
 	Route::post('removeRole/{id}/{role_id}', 'UsersController@removeRole');

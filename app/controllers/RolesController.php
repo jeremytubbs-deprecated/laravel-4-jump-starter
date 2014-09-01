@@ -10,7 +10,8 @@ class RolesController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$roles = Role::all();
+		return View::make('roles.index')->with('roles', $roles);
 	}
 
 	/**
@@ -32,7 +33,12 @@ class RolesController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$role = new Role();
+		$role->name = Input::get('name');
+		$role->description = Input::get('description');
+		$role->save();
+
+		return Redirect::route('admin.groups.index')->with('flash_message', $role->name . ' has been created.');
 	}
 
 	/**
@@ -56,7 +62,8 @@ class RolesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$role = Role::where('id', '=', $id)->first();
+		return View::make('roles.edit')->with('role', $role);
 	}
 
 	/**
@@ -68,7 +75,12 @@ class RolesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$role = Role::find($id);
+		$role->name = Input::get('name');
+		$role->description = Input::get('description');
+		$role->save();
+
+		return Redirect::route('admin.groups.index')->with('flash_message', $role->name . ' has been updated.');
 	}
 
 	/**
@@ -80,7 +92,9 @@ class RolesController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$role = Role::find($id);
+		$role->delete();
+		return Redirect::route('admin.groups.index')->with('flash_message', 'Group has been deleted.');
 	}
 
 }

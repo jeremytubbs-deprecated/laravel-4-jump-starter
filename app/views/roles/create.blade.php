@@ -1,16 +1,5 @@
 @extends('layouts.master')
 
-@section('breadcrumb')
-<div class="row">
-	<ol class="breadcrumb">
-		<li><a href="{{ url('/') }}">Home</a></li>
-	  	<li><a href="{{ url('/admin') }}">Horticulture Dashboard</a></li>
-	  	<li><a href="{{ url('/admin/users') }}">Groups</a></li>
-	  	<li class="active"><a href="">Add</a></li>
-	</ol>
-</div>
-@stop
-
 @section('content')
 <div class="container">
 	<h1>Add Group</h1>

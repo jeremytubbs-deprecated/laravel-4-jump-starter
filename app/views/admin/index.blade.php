@@ -3,6 +3,9 @@
 @section('content')
 <div class="container">
 	<h1>Dashboard</h1>
-	{{ link_to_route('admin.users.index', 'Site Users')}}
+	<ul>
+		<li>{{ link_to_route('admin.users.index', 'Site Users')}}</li>
+		<li>{{ link_to_route('admin.groups.index', 'Manage Groups')}}</li>
+	</ul>
 </div>
 @stop

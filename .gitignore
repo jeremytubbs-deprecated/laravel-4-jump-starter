@@ -9,4 +9,3 @@ composer.lock
 .DS_Store
 Thumbs.db
 /.sass-cache
-/workbench
