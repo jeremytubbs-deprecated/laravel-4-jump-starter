@@ -1,7 +1,7 @@
-<footer class="footer">
-  	<div class="container-fluid">
-  		@section('footer-content')
-    	<p class="text-muted">Sticky Footer Content</p>
-    	@show
-  	</div>
+@section('footer-content')
+<footer class="footer hidden-xs">
+	<div class="container-fluid">
+		<p class="text-muted">Sticky Footer Content</p>
+	</div>
 </footer>
+@show
