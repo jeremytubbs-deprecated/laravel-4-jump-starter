@@ -1,6 +1,8 @@
-var app = angular.module('myApp', ['ui.codemirror', 'ngAnimate']);
+var app = angular.module('app', []);
 
-app.controller('EditorController', ['$scope', '$window', function($scope, $window) {
+var myApp = angular.module('myApp', ['ui.codemirror', 'ngAnimate']);
+
+myApp.controller('EditorController', ['$scope', '$window', function($scope, $window) {
     //codemirror editor settings
     $scope.editorOptions = {
         lineWrapping : true,
@@ -21,7 +23,7 @@ app.controller('EditorController', ['$scope', '$window', function($scope, $windo
 }]);
 
 
-app.controller('FooterController', ['$scope', function($scope) {
+myApp.controller('FooterController', ['$scope', function($scope) {
     //set defaults for publish status
     $scope.submitText = 'Save Draft';
     $scope.submitStatus = false;
@@ -32,7 +34,7 @@ app.controller('FooterController', ['$scope', function($scope) {
 }]);
 
 //markdown directive used to render saved markdown from database
-app.directive('markdown', function () {
+myApp.directive('markdown', function () {
     var converter = new Showdown.converter();
     return {
         restrict: 'A',
@@ -44,7 +46,7 @@ app.directive('markdown', function () {
 });
 
 //markdown filter used with codemirror to show live preview
-app.filter('markdown', function ($sce) {
+myApp.filter('markdown', function ($sce) {
     var converter = new Showdown.converter();
     var markdownNoImageRegex = /!\[.*\S.*]/;
     var markdownImageRegex = /!\[.*\S.*]\((http|https):.*\S.*(\))/;

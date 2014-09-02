@@ -1,6 +1,6 @@
 ## Laravel 4 Jump Starter
 
-### What works:
+### What Works:
 
 - User Registration, Login, Logout, Password Reminders
 - Facebook Login
@@ -8,15 +8,27 @@
 	- Manage Users
 	- Manage Groups
 - Contact Form
+- Posts
+	- Ghost Style Editor w/Angular
+	- Publish or Save Draft
+	- List and Display
+	- Post Slugs
 
-### Currently in Progress:
+### Currently in Progress / Todos:
 
-- Ghost Style Markdown Posts w/ AngularJS
-- Email Confirmation for User Registration
+- Posts Todo
+	- Edit, Soft Delete
+	- Meta Title, Meta Description
+	- Featured Posts
+	- Public Routes
 - User Profile Page
+	- User Slugs
+	- Profile Picture
+	- Public Boolean Options
 
 ### Future Dev Plans:
 
+- xml sitemap
 - Convert to Post/Ghost to Package
 - Mailing List Signup
 - Mircoblogging Post Types

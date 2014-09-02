@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid" ng-app="myApp">
 	<div data-markdown>
 {{ $post->markdown }}
 	</div>

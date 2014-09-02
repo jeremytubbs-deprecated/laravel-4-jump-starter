@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('bodyTag')
+<body ng-app="myApp">
+@stop
+
 @section('content')
 {{ Form::open(array('action' => array('PostsController@store'), 'method' => 'POST', 'role' => 'form')) }}
 <div class="container-fluid" ng-controller="EditorController">

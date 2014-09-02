@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container">
+<div class="container" ng-app="app">
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4">
             <h1>Welcome.</h1>
