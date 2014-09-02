@@ -10,7 +10,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('posts.index');
 	}
 
 	/**
@@ -32,7 +32,29 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		dd(Input::all());
+		$input = array(
+			'title' => Input::get('title'),
+			'markdown' => Input::get('markdown'),
+			'status' => Input::get('status')
+		);
+
+		$post = new Post();
+		$post->user_id = Auth::user()->id;
+		$post->created_by = Auth::user()->id;
+		$post->title = $input['title'];
+		$post->markdown = $input['markdown'];
+		$post->slug = getSlug($input['title'], 'Post');
+		if($input['status']) {
+			$post->published_at = time();
+			$post->published_by = Auth::user()->id;
+			$message = $input['title'] . ' published.';
+		} else {
+			$message = $input['title'] . ' saved.';
+		}
+		$post->status = $input['status'] ? 1 : 0;
+		$post->save();
+
+		return Redirect::to('/')->with('success', $message);
 	}
 
 	/**
@@ -44,7 +66,7 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		return View::make('posts.show');
 	}
 
 	/**
@@ -56,7 +78,7 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return View::make('posts.edit');
 	}
 
 	/**

@@ -48,13 +48,13 @@ class UsersController extends \BaseController {
 	public function store()
 	{
 		$input = array(
-            'email' => Input::get('email'),
-            'password' => Input::get('password'),
-            'password_confirmation' => Input::get('password_confirmation')
-            );
+			'email' => Input::get('email'),
+			'password' => Input::get('password'),
+			'password_confirmation' => Input::get('password_confirmation')
+		);
 		$rules = array(
 			'password' => 'required|confirmed|min:6',
-	        'email' => 'required|email|unique:users'
+			'email' => 'required|email|unique:users'
 		);
 		$validator = Validator::make($input, $rules);
 
@@ -68,7 +68,7 @@ class UsersController extends \BaseController {
 
 			Auth::login($user);
 
-    		return Redirect::to('/')->with('flash_message', 'You are now registered.');
+			return Redirect::to('/')->with('flash_message', 'You are now registered.');
 		}
 		$error = $validator->messages();
 		return Redirect::back()->with('error', $error);
@@ -138,10 +138,10 @@ class UsersController extends \BaseController {
 	public function add()
 	{
 		$input = array(
-            'email' => Input::get('email'),
-            );
+			'email' => Input::get('email'),
+			);
 		$rules = array(
-	        'email' => 'required|email|unique:users'
+			'email' => 'required|email|unique:users'
 		);
 		$validator = Validator::make($input, $rules);
 
@@ -159,7 +159,7 @@ class UsersController extends \BaseController {
 				$user->assignRole(Input::get('group_id'));
 			}
 
-    		return Redirect::route('admin.users.index')->with('success', $user->email . ' has been created.');
+			return Redirect::route('admin.users.index')->with('success', $user->email . ' has been created.');
 		}
 		$error = $validator->messages();
 		return Redirect::back()->with('error', $error);
@@ -235,15 +235,15 @@ class UsersController extends \BaseController {
 	public function assignRole($id, $role)
 	{
 		$user = User::find($id);
-	    $user->assignRole($role);
-	    return Redirect::back();
+		$user->assignRole($role);
+		return Redirect::back();
 	}
 
 	public function removeRole($id, $role)
 	{
 		$user = User::find($id);
-	    $user->removeRole($role);
-	    return Redirect::back();
+		$user->removeRole($role);
+		return Redirect::back();
 	}
 
 }

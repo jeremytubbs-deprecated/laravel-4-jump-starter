@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"sammyk/laravel-facebook-sdk": "~1.1"
+		"sammyk/laravel-facebook-sdk": "~1.1",
+		"laracasts/utilities": "~1.0"
 	},
 	"require-dev": {
 		"way/generators": "dev-master"
