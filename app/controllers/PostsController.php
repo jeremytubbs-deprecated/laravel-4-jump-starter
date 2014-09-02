@@ -44,14 +44,14 @@ class PostsController extends \BaseController {
 		$post->title = $input['title'];
 		$post->markdown = $input['markdown'];
 		$post->slug = getSlug($input['title'], 'Post');
-		if($input['status']) {
+		if($input['status'] == 'true') {
 			$post->published_at = time();
 			$post->published_by = Auth::user()->id;
 			$message = $input['title'] . ' published.';
 		} else {
 			$message = $input['title'] . ' saved.';
 		}
-		$post->status = $input['status'] ? 1 : 0;
+		$post->status = $input['status'] == 'true' ? 1 : 0;
 		$post->save();
 
 		return Redirect::to('/')->with('success', $message);
