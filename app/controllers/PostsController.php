@@ -10,7 +10,8 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('posts.index');
+		$posts = Post::all();
+		return View::make('posts.index')->with('posts', $posts);
 	}
 
 	/**
@@ -64,9 +65,10 @@ class PostsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($slug)
 	{
-		return View::make('posts.show');
+		$post = Post::where('slug', '=', $slug)->first();
+		return View::make('posts.show', compact('post'));
 	}
 
 	/**
