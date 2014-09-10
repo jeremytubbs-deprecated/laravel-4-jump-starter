@@ -1,4 +1,7 @@
-## Laravel 4 Jump Starter
+## Laravel 4.2 Jump Starter
+This project uses gulp for sass and angularjs.
+
+Check out my truely barebones project skeleton: [Laravel 4.3 Jump Starter](https://github.com/jeremytubbs/laravel-4.3-jump-starter).
 
 ### What Works:
 
@@ -21,6 +24,7 @@
 	- Delete? or Soft Delete?
 	- Admin "all posts" index style
 	- Meta Title, Meta Description
+	- Tags / Catagories
 	- Featured Posts
 - User Profile Page
 	- User Slugs
