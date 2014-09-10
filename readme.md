@@ -11,20 +11,23 @@
 - Posts
 	- Ghost Style Editor w/Angular
 	- Publish or Save Draft
+	- Edit / Update Post
 	- List and Display
 	- Post Slugs
 
 ### Currently in Progress / Todos:
 
 - Posts Todo
-	- Edit, Soft Delete
+	- Delete? or Soft Delete?
+	- Admin "all posts" index style
 	- Meta Title, Meta Description
 	- Featured Posts
-	- Public Routes
 - User Profile Page
 	- User Slugs
 	- Profile Picture
 	- Public Boolean Options
+- Dashboard
+	- Styles
 
 ### Future Dev Plans:
 

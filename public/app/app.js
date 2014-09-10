@@ -25,8 +25,10 @@ myApp.controller('EditorController', ['$scope', '$window', function($scope, $win
 
 myApp.controller('FooterController', ['$scope', function($scope) {
     //set defaults for publish status
-    $scope.submitText = 'Save Draft';
-    $scope.submitStatus = false;
+     $scope.init = function(text, status) {
+        $scope.submitText = text;
+        $scope.submitStatus = status;
+     }
     //toggle the publish status value
     $scope.updateSubmit = function(value) {
         $scope.submitText = value;

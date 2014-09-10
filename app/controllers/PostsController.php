@@ -55,7 +55,7 @@ class PostsController extends \BaseController {
 		$post->status = $input['status'] == 'true' ? 1 : 0;
 		$post->save();
 
-		return Redirect::to('/')->with('success', $message);
+		return Redirect::to('admin/posts')->with('success', $message);
 	}
 
 	/**
@@ -80,7 +80,8 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('posts.edit');
+		$post = Post::find($id);
+		return View::make('posts.edit')->with('post', $post);;
 	}
 
 	/**
@@ -92,7 +93,29 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = array(
+			'title' => Input::get('title'),
+			'markdown' => Input::get('markdown'),
+			'status' => Input::get('status')
+		);
+
+		$post = Post::find($id);
+		$post->user_id = Auth::user()->id;
+		$post->created_by = Auth::user()->id;
+		$post->title = $input['title'];
+		$post->markdown = $input['markdown'];
+		$post->slug = getSlug($input['title'], 'Post');
+		if($input['status'] == 'true') {
+			$post->published_at = time();
+			$post->published_by = Auth::user()->id;
+			$message = $input['title'] . ' published post updated.';
+		} else {
+			$message = $input['title'] . 'unpublished updates saved.';
+		}
+		$post->status = $input['status'] == 'true' ? 1 : 0;
+		$post->save();
+
+		return Redirect::to('admin/posts')->with('success', $message);
 	}
 
 	/**

@@ -31,7 +31,7 @@
 @section('footer-content')
 <footer class="footer">
 	<div class="container-fluid">
-		<div class="row" ng-controller="FooterController">
+		<div class="row" ng-controller="FooterController" ng-init="init('Save Draft', false)">
 			<div class="col-md-12">
 				<div class="btn-group pull-right dropup">
 					<button type="submit" class="btn btn-danger" ng-show="submitStatus"><span ng-bind="submitText"></span></button>

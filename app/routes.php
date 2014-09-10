@@ -16,21 +16,6 @@ Route::get('/', array('as' => 'home', function() {
     return View::make('home');
 }));
 
-//Admin Area
-Route::group(array('before' => 'auth|role:admin', 'prefix' => 'admin'), function() {
-    Route::get('', array('as' => 'dashboard', 'uses' => 'AdminController@index'));
-    //Users Routes
-    Route::resource('users', 'UsersController');
-    Route::resource('groups', 'RolesController');
-    Route::post('users/create', array('as' => 'addUser', 'uses' => 'UsersController@add'));
-    Route::post('assignRole/{id}/{role_id}', 'UsersController@assignRole');
-	Route::post('removeRole/{id}/{role_id}', 'UsersController@removeRole');
-	// Route::resource('groups', 'RolesController');
-	//Posts Editor Routes
-    Route::resource('posts', 'PostsController');
-	Route::get('editor', ['as' => 'editor', 'uses' => 'PostsController@create']);
-});
-
 //User Sesions
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
 Route::post('login', array('as' => 'sessions.store', 'uses' => 'SessionsController@store'));
@@ -53,6 +38,23 @@ Route::get('facebook/login', array('as' => 'store_facebook', 'uses' => 'UsersCon
 //Contact Form
 Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@index'));
 Route::post('contact', array('as' => 'contact.send', 'uses' => 'ContactController@send'));
+
+//Posts Show
+Route::get('post/{slug}', array('as' => 'post', 'uses' => 'PostsController@show'));
+
+//Admin Area
+Route::group(array('before' => 'auth|role:admin', 'prefix' => 'admin'), function() {
+    Route::get('', array('as' => 'dashboard', 'uses' => 'AdminController@index'));
+    //Users Routes
+    Route::resource('users', 'UsersController');
+    Route::resource('groups', 'RolesController');
+    Route::post('users/create', array('as' => 'addUser', 'uses' => 'UsersController@add'));
+    Route::post('assignRole/{id}/{role_id}', 'UsersController@assignRole');
+    Route::post('removeRole/{id}/{role_id}', 'UsersController@removeRole');
+    //Posts Editor Routes
+    Route::resource('posts', 'PostsController', array('only' => array('index', 'update', 'destroy', 'store', 'edit')));
+    Route::get('editor', array('as' => 'editor', 'uses' => 'PostsController@create'));
+});
 
 //User Account Activation Email
 //Route::get('register/activate/{confirmation}', array('as' => 'users.getConfirm', 'uses' => 'UsersController@getConfirm'));

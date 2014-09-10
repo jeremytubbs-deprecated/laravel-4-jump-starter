@@ -20,6 +20,11 @@
                         <a href="{{ URL::to('logout') }}"><i class="fa fa-sign-out fa-lg"></i> Logout</a>
                     @endif
                     </li>
+                    @if (Auth::guest() || ! Auth::user()->hasRole('admin'))
+                    <li>
+                        {{ link_to_route('contact', 'Contact') }}
+                    </li>
+                    @endif
                     @if (! Auth::guest() && Auth::user()->hasRole('admin'))
                     <li>
                         {{ link_to_route('dashboard', 'Dashboard') }}

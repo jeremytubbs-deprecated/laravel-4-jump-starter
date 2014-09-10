@@ -1,11 +1,15 @@
 @extends('layouts.master')
 
+@section('bodyTag')
+<body ng-app="myApp">
+@stop
+
 @section('content')
-{{ Form::open(array('action' => array('PostsController@update'), 'method' => 'PUT', 'role' => 'form')) }}
+{{ Form::open(array('action' => array('PostsController@update', $post->id), 'method' => 'PUT', 'role' => 'form')) }}
 <div class="container-fluid" ng-controller="EditorController">
 	<div class="row">
 		<div class="col-md-12">
-			<input class="form-control" type="text" name="title" placeholder="Title"/>
+			<input class="form-control" type="text" name="title" ng-model="editor.title" ng-init="editor.title='{{$post->title}}'" placeholder="Title"/>
 		</div>
 	</div>
 	<div class="row editor-info">
@@ -15,7 +19,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-6 editor">
-			<textarea class="form-control" name="markdown" ng-model="editor.text" ui-codemirror ui-codemirror-opts="editorOptions"></textarea>
+			<textarea class="form-control" name="markdown" ng-model="editor.text" ng-init="editor.text='{{$post->markdown}}'" ui-codemirror ui-codemirror-opts="editorOptions"></textarea>
 		</div>
 		<div class="col-md-6 preview">
 			<div class="editor-output" ng-bind-html="editor.text | markdown"></div>
@@ -25,27 +29,31 @@
 @stop
 
 @section('footer-content')
-	<div class="row" ng-controller="FooterController">
-		<div class="col-md-12">
-			<div class="btn-group pull-right dropup">
-				<button type="submit" class="btn btn-danger" ng-show="submitStatus"><span ng-bind="submitText"></span></button>
-				<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" ng-show="submitStatus">
-					<span class="caret"></span>
-					<span class="sr-only">Toggle Dropdown</span>
-				</button>
-				<button type="submit" class="btn btn-info" ng-hide="submitStatus"><span ng-bind="submitText"></span></button>
-				<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" ng-hide="submitStatus">
-					<span class="caret"></span>
-					<span class="sr-only">Toggle Dropdown</span>
-				</button>
-				<ul class="dropdown-menu" role="menu">
-					<li><a href="#" ng-click="updateSubmit('Publish'); submitStatus = !submitStatus">Publish</a></li>
-					<li><a href="#" ng-click="updateSubmit('Save Draft'); submitStatus = !submitStatus">Save Draft</a></li>
-				</ul>
+<footer class="footer">
+	<div class="container-fluid">
+		<div class="row" ng-controller="FooterController" ng-init="init('{{$post->publishedText}}', {{$post->published}})">
+			<div class="col-md-12">
+				<div class="btn-group pull-right dropup">
+					<button type="submit" class="btn btn-danger" ng-show="submitStatus"><span ng-bind="submitText"></span></button>
+					<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" ng-show="submitStatus">
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<button type="submit" class="btn btn-info" ng-hide="submitStatus"><span ng-bind="submitText"></span></button>
+					<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" ng-hide="submitStatus">
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#" ng-click="updateSubmit('Publish'); submitStatus = !submitStatus">Publish</a></li>
+						<li><a href="#" ng-click="updateSubmit('Save Draft'); submitStatus = !submitStatus">Save Draft</a></li>
+					</ul>
+				</div>
+				<input type="hidden" name="status" id="status" value="@{{ submitStatus }}"/>
 			</div>
-			<input type="hidden" name="status" id="status" value="@{{ submitStatus }}"/>
 		</div>
 	</div>
+</footer>
 {{ Form::close() }}
 @stop
 
