@@ -1,7 +1,7 @@
-## Laravel 4.2 Jump Starter
+## Laravel 4 Jump Starter
 This project uses gulp for sass and angularjs.
 
-Check out my truely barebones project skeleton: [Laravel 4.3 Jump Starter](https://github.com/jeremytubbs/laravel-4.3-jump-starter).
+Check out my truely barebones project skeleton: [Laravel 5 Jump Starter](https://github.com/jeremytubbs/laravel-5-jump-starter).
 
 ### What Works:
 
