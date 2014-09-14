@@ -12,48 +12,48 @@
 */
 
 //Home Route
-Route::get('/', array('as' => 'home', function() {
+Route::get('/', ['as' => 'home', function() {
     return View::make('home');
-}));
+}]);
 
 //User Sesions
-Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
-Route::post('login', array('as' => 'sessions.store', 'uses' => 'SessionsController@store'));
-Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destroy'));
+Route::get('login', ['as' => 'login', 'uses' => 'SessionsController@create']);
+Route::post('login', ['as' => 'sessions.store', 'uses' => 'SessionsController@store']);
+Route::get('logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);
 
 //User Registration
-Route::get('register', array('as' => 'register', 'uses' => 'UsersController@register'));
-Route::post('register', array('as' => 'users.store', 'uses' => 'UsersController@store'));
+Route::get('register', ['as' => 'register', 'uses' => 'UsersController@register']);
+Route::post('register', ['as' => 'users.store', 'uses' => 'UsersController@store']);
 
 // Password Resets
-Route::get('password/reset/{token}', array('as' => 'reset', 'uses' => 'RemindersController@getReset'));
+Route::get('password/reset/{token}', ['as' => 'reset', 'uses' => 'RemindersController@getReset']);
 Route::post('password/reset/{token}', 'RemindersController@postReset');
-Route::get('remind', array('as' => 'remind', 'uses' => 'RemindersController@getRemind'));
+Route::get('remind', ['as' => 'remind', 'uses' => 'RemindersController@getRemind']);
 Route::post('remind', 'RemindersController@postRemind');
 
 //Facebook Login
-Route::get('facebook/connect', array('as' => 'facebook', 'uses' => 'UsersController@create_facebook'));
-Route::get('facebook/login', array('as' => 'store_facebook', 'uses' => 'UsersController@store_facebook'));
+Route::get('facebook/connect', ['as' => 'facebook', 'uses' => 'UsersController@create_facebook']);
+Route::get('facebook/login', ['as' => 'store_facebook', 'uses' => 'UsersController@store_facebook']);
 
 //Contact Form
-Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@index'));
-Route::post('contact', array('as' => 'contact.send', 'uses' => 'ContactController@send'));
+Route::get('contact', ['as' => 'contact', 'uses' => 'ContactController@index']);
+Route::post('contact', ['as' => 'contact.send', 'uses' => 'ContactController@send']);
 
 //Posts Show
-Route::get('post/{slug}', array('as' => 'post', 'uses' => 'PostsController@show'));
+Route::get('post/{slug}', ['as' => 'post', 'uses' => 'PostsController@show']);
 
 //Admin Area
 Route::group(array('before' => 'auth|role:admin', 'prefix' => 'admin'), function() {
-    Route::get('', array('as' => 'dashboard', 'uses' => 'AdminController@index'));
+    Route::get('', ['as' => 'dashboard', 'uses' => 'AdminController@index']);
     //Users Routes
     Route::resource('users', 'UsersController');
     Route::resource('groups', 'RolesController');
-    Route::post('users/create', array('as' => 'addUser', 'uses' => 'UsersController@add'));
+    Route::post('users/create', ['as' => 'addUser', 'uses' => 'UsersController@add']);
     Route::post('assignRole/{id}/{role_id}', 'UsersController@assignRole');
     Route::post('removeRole/{id}/{role_id}', 'UsersController@removeRole');
     //Posts Editor Routes
-    Route::resource('posts', 'PostsController', array('only' => array('index', 'update', 'destroy', 'store', 'edit')));
-    Route::get('editor', array('as' => 'editor', 'uses' => 'PostsController@create'));
+    Route::resource('posts', 'PostsController', ['only' => ['index', 'update', 'destroy', 'store', 'edit']]);
+    Route::get('editor', ['as' => 'editor', 'uses' => 'PostsController@create']);
 });
 
 //User Account Activation Email
