@@ -100,7 +100,7 @@ Route::filter('csrf', function()
 Route::filter('role', function($route, $request, $role)
 {
 	if (Auth::guest() || ! Auth::user()->hasRole($role)) {
-		return Response::view('errors.403', array(), 403);
+		return Redirect::to('/');
 	}
 });
 

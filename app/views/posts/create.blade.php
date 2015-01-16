@@ -19,10 +19,10 @@
 	</div>
 	<div class="row">
 		<div class="col-md-6 editor">
-			<textarea class="form-control" name="markdown" ng-model="editor.text" ui-codemirror ui-codemirror-opts="editorOptions"></textarea>
+			<textarea class="form-control" name="commonmark" ng-model="editor.text" ui-codemirror ui-codemirror-opts="editorOptions"></textarea>
 		</div>
 		<div class="col-md-6 preview">
-			<div class="editor-output" ng-bind-html="editor.text | markdown"></div>
+			<div class="editor-output" ng-bind-html="editor.text | commonmark"></div>
 		</div>
 	</div>
 </div>
@@ -61,8 +61,9 @@
 {{ HTML::style("vendor/codemirror/lib/codemirror.css") }}
 @stop
 
-@section('scripts')
+@section('ngscripts')
 {{ HTML::script('vendor/codemirror/lib/codemirror.js') }}
 {{ HTML::script('vendor/ui-codemirror.min.js') }}
+{{ HTML::script('vendor/commonmark.js') }}
 <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
 @stop

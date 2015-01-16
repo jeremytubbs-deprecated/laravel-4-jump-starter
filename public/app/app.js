@@ -52,7 +52,7 @@ myApp.filter('markdown', function ($sce) {
     var converter = new Showdown.converter();
     var markdownNoImageRegex = /!\[.*\S.*]/;
     var markdownImageRegex = /!\[.*\S.*]\((http|https):.*\S.*(\))/;
-    
+
     return function (value) {
         // I need to break apart the string into an array
         var processTemplate = function(text) {
@@ -71,3 +71,24 @@ myApp.filter('markdown', function ($sce) {
     };
 });
 
+//commonmark directive
+myApp.directive('commonmark', function () {
+    var writer = new commonmark.HtmlRenderer();
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            var htmlText = writer.render(element.text());
+            element.html(htmlText);
+        }
+    };
+});
+
+//commonmark filter
+myApp.filter('commonmark', function ($sce) {
+    var reader = commonmark.DocParser();
+    var writer = new commonmark.HtmlRenderer();
+    return function (value) {
+        var html = writer.render(reader.parse(value || ''));
+        return $sce.trustAsHtml(html);
+    };
+});

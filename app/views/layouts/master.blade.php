@@ -34,11 +34,12 @@
 		{{-- scripts --}}
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+		@yield('scripts')
 		{{ HTML::script('vendor/bootstrap.min.js') }}
 		{{ HTML::script('vendor/angular/angular.min.js') }}
 		{{ HTML::script('vendor/angular/angular-animate.min.js') }}
 		{{ HTML::script('app/app.js') }}
-		@yield('scripts')
+		@yield('ngscripts')
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>
 			(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
